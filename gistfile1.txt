@@ -1,2 +1,2 @@
 from random import randint
-randint(1,6)
+randint(a,b)
