@@ -1,0 +1,12 @@
+#На ввод подается дайс в формате 2d6, на вывод - сумма бросков кубика.
+import random
+dice = list(input())
+amount = dice[0]#кол-во бросков
+number = dice[2]#кол-во сторон
+result = 0
+summa = 0
+for i in range(int(amount)):
+  result = random.randint(1, int(number))
+  i += 1
+  summa += result
+print (summa)
