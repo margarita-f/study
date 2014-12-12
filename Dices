@@ -1,7 +1,5 @@
 import random
-dice = list(input())
-amount = dice[0]#кол-во бросков
-number = dice[2]#кол-во сторон
+amount, number = input().split('d')
 result = 0
 summa = 0
 for i in range(int(amount)):
