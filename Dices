@@ -7,3 +7,9 @@ for i in range(int(amount)):
   i += 1
   summa += result
 print (summa)
+
+#как вариант
+result = []
+for i in range(int(amount)):
+  result.append(random.randint(1, int(number)))
+summ = sum(result)
