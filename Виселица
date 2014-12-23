@@ -1,4 +1,5 @@
-word = list(input(u'Игрок №1, введите ваше слово'))
+from random import choice
+word = choice(['world', 'banana', 'pineapple', 'crowdfunding'])
 print u'количество букв в загаданном слове:', len(word)
 #print (len(word) * '*')
 word_shadow = []
