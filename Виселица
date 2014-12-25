@@ -27,5 +27,6 @@ while len(word) and trying < 6:
   if trying == 6:
     print u'Игры кончились'
     break
-  if word_shadow == word: #этот кусок отказался работать, и цикл не завершается
+  if set(word_shadow) == set(word):
+    print u'Ты отгадал слово, стервец!'
     break
