@@ -1,0 +1,43 @@
+from random import choice
+
+alph = 'abcdefghijklmnopqrstuvwxyz'
+word = choice(['world', 'banana', 'pineapple', 'crowdfunding'])
+letters = []
+attempts = 5
+
+while True:
+    letter = raw_input('Enter letter: ')
+    if letter in letters:
+        print 'This letter was entered before'
+        continue
+
+    letters.append(letter)
+
+    if len([c for c in letters if c in set(word)]) == len(set(word)):
+        print 'Yep, the word was: %s' % word
+        break
+
+    if letter in word:
+        for c in word:
+            if c in letters:
+                print c,
+            else:
+                print '_',
+        print
+
+
+    else:
+        attempts -= 1
+        if attempts == 0:
+            print 'Sry, u loose'
+            break
+        else:
+            print 'Nope, try another letter'
+
+    print 'Unused letters: ',
+    for c in alph:
+        if c not in letters:
+            print c,
+        else:
+            print '*',
+    print
