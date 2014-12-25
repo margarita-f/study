@@ -1,32 +1,31 @@
 from random import choice
-word = choice(['world', 'banana', 'pineapple', 'crowdfunding'])
-print u'количество букв в загаданном слове:', len(word)
-#print (len(word) * '*')
+word = choice(['cat', 'dog', 'banana'])
+print len(word) * '*'
 word_shadow = []
 len(word_shadow) == len(word)
-word_shadow = len(word) * '*'
-print word_shadow #здесь закончилось определение слова и начинается определение букв
-word_shadow = list(word_shadow)
-count = 0
+used_letters = []
+trying = 0
 
-while len(word_shadow):
-  a = input(u'Попробуйте угадать букву')
+while len(word) and trying < 6:
+  letter = input(u'Попробуйте угадать букву')
   
-  if a in word:
-    ind = word.index(a)#индекс находится !!! Только первое вхождение
-    ind_shadow = ind #у тени тот же индекс
-    del word_shadow[ind_shadow]
-    word_shadow.insert(ind_shadow, a)#вставляет букву в нужный индекс
-    print word_shadow #цикл не кончается!!!!!!!
-    if word_shadow == word:
-      print u'Вы победили!'
-      break
-  
+  if letter in used_letters:
+    print u'Ты уже называл эту букву'
   else:
-    while count <= 6:
-      count += 1
-      print u'Неверно. Осталось попыток:', 6 - count
-      break
-    if count == 6:
-      print u'увы'
-      break
+    used_letters.append(letter)
+  
+  if letter in word:
+    word_shadow = [letter if letter in used_letters else '*' for letter in word]
+    
+  else:
+    print u'Увы, такой буквы здесь нет'
+    trying += 1
+    print u'Осталось попыток:', 6 - trying
+  print u'Вы уже использовали буквы:', used_letters
+  print word_shadow
+  
+  if trying == 6:
+    print u'Игры кончились'
+    break
+  if word_shadow == word: #этот кусок отказался работать, и цикл не завершается
+    break
