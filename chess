@@ -1,0 +1,14 @@
+column_1 = int(input())
+line_1 = int(input())
+column_2 = int(input())
+line_2 = int(input())
+if (column_2 - column_1) % 2 == 0:
+    if (line_2 - line_1) % 2 == 0:
+        print('Yes')
+    else:
+        print('NO')
+else:
+    if (line_2 - line_1) % 2 != 0:
+        print('YES')
+    else:
+        print('NO')
